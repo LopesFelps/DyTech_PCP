@@ -1,0 +1,54 @@
+# ----------------------------------------------------------------------
+# 1. Dependências e Módulos (Node.js)
+# ----------------------------------------------------------------------
+/node_modules
+/npm-debug.log
+/npm-debug.log.*
+/yarn-error.log
+/yarn-debug.log*
+.npm/
+.yarn/
+.package-lock.json.orig
+
+# ----------------------------------------------------------------------
+# 2. Variáveis de Ambiente e Arquivos de Configuração Local/Sensível
+# ----------------------------------------------------------------------
+.env
+.env.local
+.local.env
+*.key
+*.pem
+
+# ----------------------------------------------------------------------
+# 3. Artefatos de Build e Distribuição
+# ----------------------------------------------------------------------
+/dist
+/build
+/out
+/temp
+/tmp
+*.log
+
+# ----------------------------------------------------------------------
+# 4. Arquivos de Banco de Dados (SQLite)
+# ----------------------------------------------------------------------
+# Arquivo do banco de dados SQLite que contém dados transacionais.
+/backend/papelaria.db
+*.sqlite
+*.db
+
+# ----------------------------------------------------------------------
+# 5. Arquivos de Sistema Operacional e IDE
+# ----------------------------------------------------------------------
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Visual Studio Code
+.vscode/
+
+# JetBrains IDEs (opcional)
+.idea/
