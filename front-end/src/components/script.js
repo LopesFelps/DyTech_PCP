@@ -78,7 +78,67 @@ const animateOnScroll = () => {
 
         if (elementPosition < screenPosition) {
             element.classList.add('animate-fade-in-up');
+        
         }
+
+        // Formulário de Orçamento (demo sem backend)
+const orcamentoForm = document.getElementById('orcamento-form');
+if (orcamentoForm) {
+  orcamentoForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(orcamentoForm).entries());
+    alert(`Orçamento enviado!\nProduto: ${data.produto}\nServiço: ${data.servico}\nQuantidade: ${data.quantidade}`);
+    orcamentoForm.reset();
+  });
+  // abre/fecha ao clicar no botão
+  servicoBtn.addEventListener('click', () => toggleDropdown());
+
+  // seleciona uma opção
+  servicoDropdown.querySelectorAll('button[data-value]').forEach((opt) => {
+    opt.addEventListener('click', () => {
+      servicoInput.value = opt.dataset.value;
+      toggleDropdown(false);
+      servicoInput.focus();
+    });
+  });
+
+  // fecha ao clicar fora
+  document.addEventListener('click', (e) => {
+    if (!servicoDropdown.contains(e.target) && !servicoBtn.contains(e.target)) {
+      toggleDropdown(false);
+    }
+  });
+
+  // acessibilidade via teclado
+  servicoBtn.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleDropdown(true);
+    }
+  });
+
+  servicoDropdown.addEventListener('keydown', (e) => {
+    const items = Array.from(servicoDropdown.querySelectorAll('button[data-value]'));
+    const current = document.activeElement;
+    const i = items.indexOf(current);
+
+    if (e.key === 'Escape') {
+      toggleDropdown(false);
+      servicoBtn.focus();
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      items[Math.min(i + 1, items.length - 1)]?.focus();
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      items[Math.max(i - 1, 0)]?.focus();
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      current?.click();
+    }
+  });
+}
+
+
     });
 };
 // Adiciona a classe de animação ao rolar para os elementos
