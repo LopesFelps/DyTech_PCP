@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produtos | Papelaria Central Parque</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* Estilos customizados */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9fafb;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSJ1cmwoI2dyYWRpZW50KSIgZD0iTTI1NiA4QzExOSA4IDggMTE5IDggMjU2czExMSAyNDggMjQ4IDI0OCAyNDgtMTExIDI0OC0yNDhTMzkzIDggMjU2IDh6IiBvcGFjaXR5PSIwLjA1Ii8+PHBhdGg... (o resto do SVG) ...dmZwPg==');
+      background-size: 50%;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.03;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .hero-section {
+      background: linear-gradient(135deg, rgba(102, 51, 153, 0.9), rgba(0, 0, 0, 0.8)),
+        url('https://images.unsplash.com/photo-1518455022959-bd206c94984d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(102, 51, 153, 0.3);
+    }
+
+    .social-icon {
+      transition: all 0.3s ease;
+    }
+
+    .social-icon:hover {
+      transform: scale(1.1);
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #663399;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #5a2d8a;
+    }
+
+    /* Section divider (Estilos mantidos, mas a DIV foi removida) */
+    .section-divider {
+      position: relative;
+      height: 80px;
+      overflow: hidden;
+    }
+
+    .section-divider svg {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Novo banner de cabeçalho para esta página */
+    .header-banner {
+      background: linear-gradient(135deg, rgba(102, 51, 153, 0.9), rgba(0, 0, 0, 0.8));
+      min-height: 40vh;
+    }
+  </style>
+</head>
+
+<body class="relative">
+  <nav class="bg-purple-900 shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center">
+        <a href="index.html#home"><img src="assets/logo2.jpg" alt="Logo Papelaria Central Parque" class="w-12 h-12 rounded-full object-cover p-1 shadow" /></a>
+      </div>
+
+      <button id="mobile-menu-button" class="md:hidden focus:outline-none text-white">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+
+      <div class="hidden md:flex space-x-8">
+        <a href="index.html#home" class="text-white hover:text-purple-300 transition flex flex-col items-center">
+          <i class="fas fa-home text-xl"></i>
+          <span class="text-xs mt-1">Home</span>
+        </a>
+
+        <a href="orcamentos.html" class="text-white hover:text-purple-300 transition flex flex-col items-center">
+          <i class="fas fa-dollar-sign text-xl"></i>
+          <span class="text-xs mt-1">Orçamentos</span>
+        </a>
+
+        <a href="produtos.html" class="text-purple-300 font-bold transition flex flex-col items-center">
+          <i class="fas fa-shopping-bag text-xl"></i>
+          <span class="text-xs mt-1">Produtos</span>
+        </a>
+        
+        <a href="usuario.html" class="text-white hover:text-purple-300 transition flex flex-col items-center">
+          <i class="fas fa-user text-xl mb-1"></i>
+          <span class="text-xs mt-0">Login</span>
+        </a>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-purple-800 px-4 py-2">
+      <a href="index.html#home" class="block py-2 text-white hover:text-purple-300 transition flex items-center">
+        <i class="fas fa-home mr-3"></i> Home
+      </a>
+      <a href="orcamentos.html" class="block py-2 text-white hover:text-purple-300 transition flex items-center">
+        <i class="fas fa-dollar-sign mr-3"></i> Orçamentos
+      </a>
+      <a href="produtos.html" class="block py-2 text-purple-300 font-bold transition flex items-center">
+        <i class="fas fa-shopping-bag mr-3"></i> Produtos
+      </a>
+      <a href="usuario.html" class="block py-2 text-white hover:text-purple-300 transition flex items-center">
+        <i class="fas fa-user mr-3"></i> Login
+      </a>
+    </div>
+  </nav>
+  <header class="header-banner flex items-center justify-center text-white text-center">
+    <div class="container mx-auto px-4 py-16">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Catálogo de Produtos</h1>
+      <p class="text-lg md:text-xl">Materiais escolares, de escritório e presentes para todas as idades.</p>
+    </div>
+  </header>
+  
+  
+  <section id="produtos" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4 text-purple-900">Nossos Produtos</h2>
+        <div class="w-20 h-1 bg-purple-700 mx-auto"></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div
+          class="card-hover bg-white rounded-lg overflow-hidden shadow-md transition duration-300 animate-fade-in-up">
+          <div class="relative overflow-hidden h-48">
+            <img
+              src="https://images.unsplash.com/photo-1581093450021-5376e921c838?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Cadernos" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+            <div class="absolute top-2 right-2 bg-purple-700 text-white px-2 py-1 rounded text-xs font-bold">NOVO</div>
+          </div>
+          <div class="p-4">
+            <h3 class="text-xl font-semibold mb-2 text-purple-900">Cadernos Premium</h3>
+            <p class="text-gray-600 mb-4 text-sm">Cadernos de capa dura com 200 folhas</p>
+            <div class="flex justify-between items-center">
+              <span class="text-lg font-bold text-purple-900">R$ 29,90</span>
+              <button
+                class="bg-purple-700 hover:bg-purple-600 text-white px-4 py-2 rounded-full text-sm transition flex items-center">
+                <i class="fas fa-eye mr-1"></i> Ver
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="card-hover bg-white rounded-lg overflow-hidden shadow-md transition duration-300 animate-fade-in-up">
+          <div class="relative overflow-hidden h-48">
+            <img
+              src="https://images.unsplash.com/photo-1511203466129-824e631920d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Canetas" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+          </div>
+          <div class="p-4">
+            <h3 class="text-xl font-semibold mb-2 text-purple-900">Kit Canetas Coloridas</h3>
+            <p class="text-gray-600 mb-4 text-sm">Conjunto com 12 cores vibrantes</p>
+            <div class="flex justify-between items-center">
+              <span class="text-lg font-bold text-purple-900">R$ 19,90</span>
+              <button
+                class="bg-purple-700 hover:bg-purple-600 text-white px-4 py-2 rounded-full text-sm transition flex items-center">
+                <i class="fas fa-eye mr-1"></i> Ver
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="card-hover bg-white rounded-lg overflow-hidden shadow-md transition duration-300 animate-fade-in-up">
+          <div class="relative overflow-hidden h-48">
+            <img
+              src="https://images.unsplash.com/photo-1560869713-8174f8eae0d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Mochilas" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+            <div class="absolute top-2 right-2 bg-purple-700 text-white px-2 py-1 rounded text-xs font-bold">MAIS
+              VENDIDO</div>
+          </div>
+          <div class="p-4">
+            <h3 class="text-xl font-semibold mb-2 text-purple-900">Mochila Escolar</h3>
+            <p class="text-gray-600 mb-4 text-sm">Mochila resistente com vários compartimentos</p>
+            <div class="flex justify-between items-center">
+              <span class="text-lg font-bold text-purple-900">R$ 89,90</span>
+              <button
+                class="bg-purple-700 hover:bg-purple-600 text-white px-4 py-2 rounded-full text-sm transition flex items-center">
+                <i class="fas fa-eye mr-1"></i> Ver
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="card-hover bg-white rounded-lg overflow-hidden shadow-md transition duration-300 animate-fade-in-up">
+          <div class="relative overflow-hidden h-48">
+            <img
+              src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Materiais de Escritório" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+          </div>
+          <div class="p-4">
+            <h3 class="text-xl font-semibold mb-2 text-purple-900">Kit Escritório</h3>
+            <p class="text-gray-600 mb-4 text-sm">Tudo que você precisa para o trabalho</p>
+            <div class="flex justify-between items-center">
+              <span class="text-lg font-bold text-purple-900">R$ 49,90</span>
+              <button
+                class="bg-purple-700 hover:bg-purple-600 text-white px-4 py-2 rounded-full text-sm transition flex items-center">
+                <i class="fas fa-eye mr-1"></i> Ver
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="card-hover bg-white rounded-lg overflow-hidden shadow-md transition duration-300 animate-fade-in-up">
+          <div class="relative overflow-hidden h-48">
+            <img
+              src="https://images.unsplash.com/photo-1549388604-817b15a13da2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Materiais de Arte" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+          </div>
+          <div class="p-4">
+            <h3 class="text-xl font-semibold mb-2 text-purple-900">Kit Artista</h3>
+            <p class="text-gray-600 mb-4 text-sm">Materiais profissionais para desenho</p>
+            <div class="flex justify-between items-center">
+              <span class="text-lg font-bold text-purple-900">R$ 79,90</span>
+              <button
+                class="bg-purple-700 hover:bg-purple-600 text-white px-4 py-2 rounded-full text-sm transition flex items-center">
+                <i class="fas fa-eye mr-1"></i> Ver
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="card-hover bg-white rounded-lg overflow-hidden shadow-md transition duration-300 animate-fade-in-up">
+          <div class="relative overflow-hidden h-48">
+            <img
+              src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Organizadores" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+          </div>
+          <div class="p-4">
+            <h3 class="text-xl font-semibold mb-2 text-purple-900">Organizadores</h3>
+            <p class="text-gray-600 mb-4 text-sm">Materiais para manter tudo em ordem</p>
+            <div class="flex justify-between items-center">
+              <span class="text-lg font-bold text-purple-900">R$ 39,90</span>
+              <button
+                class="bg-purple-700 hover:bg-purple-600 text-white px-4 py-2 rounded-full text-sm transition flex items-center">
+                <i class="fas fa-eye mr-1"></i> Ver
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="card-hover bg-white rounded-lg overflow-hidden shadow-md transition duration-300 animate-fade-in-up">
+          <div class="relative overflow-hidden h-48">
+            <img
+              src="https://images.unsplash.com/photo-1518455022959-bd206c94984d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Papéis" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+          </div>
+          <div class="p-4">
+            <h3 class="text-xl font-semibold mb-2 text-purple-900">Papéis Variados</h3>
+            <p class="text-gray-600 mb-4 text-sm">Diversos tipos e gramaturas</p>
+            <div class="flex justify-between items-center">
+              <span class="text-lg font-bold text-purple-900">R$ 9,90</span>
+              <button
+                class="bg-purple-700 hover:bg-purple-600 text-white px-4 py-2 rounded-full text-sm transition flex items-center">
+                <i class="fas fa-eye mr-1"></i> Ver
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="card-hover bg-white rounded-lg overflow-hidden shadow-md transition duration-300 animate-fade-in-up">
+          <div class="relative overflow-hidden h-48">
+            <img
+              src="https://images.unsplash.com/photo-1629196913083-6a0c8d5cb5e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Presentes" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+            <div class="absolute top-2 right-2 bg-purple-700 text-white px-2 py-1 rounded text-xs font-bold">PROMOÇÃO
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="text-xl font-semibold mb-2 text-purple-900">Kits de Presente</h3>
+            <p class="text-gray-600 mb-4 text-sm">Presentes criativos para todas as ocasiões</p>
+            <div class="flex justify-between items-center">
+              <span class="text-lg font-bold text-purple-900 line-through mr-2">R$ 79,90</span>
+              <span class="text-lg font-bold text-purple-900">R$ 59,90</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="orcamentos.html"
+          class="inline-block bg-purple-700 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-medium transition transform hover:scale-105">
+          <i class="fas fa-chevron-right mr-2"></i> Faça um Orçamento
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-purple-900 text-white py-8">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <div class="flex items-center space-x-2">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center">
+              <img src="assets/logopcp.png" alt="Logo Papelaria Central Parque" class="w-12 h-12 rounded-full object-cover p-1 shadow" />
+            </div>
+          </div>
+        </div>
+
+        <div class="flex space-x-6 mb-4 md:mb-0">
+          <a href="index.html#home" class="hover:text-purple-300 transition">
+            <i class="fas fa-home"></i>
+          </a>
+          <a href="orcamentos.html" class="hover:text-purple-300 transition">
+            <i class="fas fa-dollar-sign"></i>
+          </a>
+          <a href="produtos.html" class="hover:text-purple-300 transition">
+            <i class="fas fa-shopping-bag"></i>
+          </a>
+          <a href="usuario.html" class="hover:text-purple-300 transition">
+            <i class="fas fa-user"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="border-t border-purple-800 mt-6 pt-6 text-center text-purple-300">
+        <p>© 2025 Papelaria e Bazar Central Parque. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+  <button id="back-to-top"
+    class="fixed bottom-6 right-6 bg-purple-700 hover:bg-purple-600 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+  
+  <script>
+    // Script para o menu mobile
+    document.addEventListener('DOMContentLoaded', () => {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    });
+  </script>
+</body>
+</html>
