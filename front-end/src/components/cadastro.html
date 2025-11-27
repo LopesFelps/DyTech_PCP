@@ -2,95 +2,24 @@
 <html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Orçamentos | Papelaria Central Parque</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Papelaria Central Parque</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <script src="https://cdn.tailwindcss.com"></script>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     /* Estilos customizados */
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #f9fafb;
       position: relative;
       overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSJ1cmwoI2dyYWRpZW50KSIgZD0iTTI1NiA4QzExOSA4IDggMTE5IDggMjU2czExMSAyNDggMjQ4IDI0OCAyNDgtMTExIDI0OC0yNDhTMzkzIDggMjU2IDh6IiBvcGFjaXR5PSIwLjA1Ii8+PHBhdGg... (o resto do SVG) ...dmZwPg==');
-      background-size: 50%;
-      background-position: center;
-      background-repeat: no-repeat;
-      opacity: 0.03;
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    .hero-section {
-      background: linear-gradient(135deg, rgba(102, 51, 153, 0.9), rgba(0, 0, 0, 0.8)),
-        url('https://images.unsplash.com/photo-1518455022959-bd206c94984d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-    }
-
-    .card-hover {
-      transition: all 0.3s ease;
-    }
-
-    .card-hover:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(102, 51, 153, 0.3);
-    }
-
-    .social-icon {
-      transition: all 0.3s ease;
-    }
-
-    .social-icon:hover {
-      transform: scale(1.1);
-    }
-
-    .animate-fade-in {
-      animation: fadeIn 1s ease-in-out;
-    }
-
-    .animate-fade-in-up {
-      animation: fadeInUp 0.8s ease-out;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-
-      to {
-        opacity: 1;
-      }
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
 
     /* Custom scrollbar */
@@ -103,7 +32,7 @@
     }
 
     ::-webkit-scrollbar-thumb {
-      background: #663399;
+      background: #663399; /* Cor roxa */
       border-radius: 4px;
     }
 
@@ -111,22 +40,7 @@
       background: #5a2d8a;
     }
 
-    /* Section divider */
-    .section-divider {
-      position: relative;
-      height: 80px;
-      overflow: hidden;
-    }
-
-    .section-divider svg {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    /* NOVO ESTILO: Banner de Cabeçalho (igual ao produtos.html) */
+    /* NOVO ESTILO: Banner de Cabeçalho */
     .header-banner {
       background: linear-gradient(135deg, rgba(102, 51, 153, 0.9), rgba(0, 0, 0, 0.8));
       min-height: 40vh;
@@ -134,7 +48,8 @@
   </style>
 </head>
 
-<body class="relative">
+<body class="min-h-screen bg-white relative">
+
   <nav class="bg-purple-900 shadow-lg sticky top-0 z-50">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
       <div class="flex items-center">
@@ -151,7 +66,7 @@
           <span class="text-xs mt-1">Home</span>
         </a>
 
-        <a href="orcamentos.html" class="text-purple-300 font-bold transition flex flex-col items-center">
+        <a href="orcamentos.html" class="text-white hover:text-purple-300 transition flex flex-col items-center">
           <i class="fas fa-dollar-sign text-xl"></i>
           <span class="text-xs mt-1">Orçamentos</span>
         </a>
@@ -169,10 +84,11 @@
     </div>
 
     <div id="mobile-menu" class="hidden md:hidden bg-purple-800 px-4 py-2">
+
       <a href="index.html#home" class="block py-2 text-white hover:text-purple-300 transition flex items-center">
         <i class="fas fa-home mr-3"></i> Home
       </a>
-      <a href="orcamentos.html" class="block py-2 text-purple-300 font-bold transition flex items-center">
+      <a href="orcamentos.html" class="block py-2 text-white hover:text-purple-300 transition flex items-center">
         <i class="fas fa-dollar-sign mr-3"></i> Orçamentos
       </a>
       <a href="produtos.html" class="block py-2 text-white hover:text-purple-300 transition flex items-center">
@@ -183,43 +99,57 @@
       </a>
     </div>
   </nav>
-
   <header class="header-banner flex items-center justify-center text-white text-center">
     <div class="container mx-auto px-4 py-16">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">Solicite seu Orçamento</h1>
-      <p class="text-lg md:text-xl">Preencha o formulário para serviços de impressão, encadernação e mais.</p>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Crie sua Conta</h1>
+      <p class="text-lg md:text-xl">Preencha seus dados para começar a aproveitar a plataforma.</p>
     </div>
   </header>
-  
-  <section id="Orçamentos" class="flex items-center justify-center bg-white py-16">
-    <div class="container mx-auto px-4">
-      <div class="max-w-2xl mx-auto bg-purple-900 rounded-2xl p-8 shadow-xl">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-2 text-white">Formulário de Orçamento</h2>
-        <p class="text-center text-purple-200 mb-8">Faça o orçamento dos serviços da Papelaria!</p>
+  <main class="flex items-center justify-center px-4 py-10">
+    <div class="w-full max-w-2xl mx-auto bg-purple-900 rounded-2xl shadow-xl p-8 md:p-12">
+      <h1 class="text-3xl md:text-4xl font-extrabold text-center mb-3 text-white">Cadastro de Usuário</h1>
+      <p class="text-center text-purple-200 mb-10">Faça o seu cadastro e aproveite a plataforma!</p>
 
-        <form id="orcamento-form" class="space-y-4">
-          <input type="text" name="produto" placeholder="Produto"
-            class="w-full px-4 py-3 rounded-lg bg-white text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-300" required>
+      <form id="cadastro-form" class="space-y-5">
+        <input type="text" name="nome" id="nome" placeholder="Nome" required
+               class="w-full px-4 py-3 rounded-lg bg-white text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-300"/>
 
-          <input type="text" name="servico" placeholder="Serviço"
-            class="w-full px-4 py-3 rounded-lg bg-white text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-300" required>
+        <input type="email" name="email" id="email" placeholder="E-mail" required
+               class="w-full px-4 py-3 rounded-lg bg-white text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-300"/>
 
-          <input type="number" name="quantidade" placeholder="Quantidade" min="1"
-            class="w-full px-4 py-3 rounded-lg bg-white text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-300" required>
+        <input type="tel" name="telefone" id="telefone" placeholder="Telefone / WhatsApp (Opcional)"
+               class="w-full px-4 py-3 rounded-lg bg-white text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-300"/>
 
-          <textarea name="observacao" rows="6" placeholder="Observação"
-            class="w-full px-4 py-3 rounded-lg bg-white text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-300"></textarea>
+        <input type="password" name="senha" id="senha" placeholder="Senha" required minlength="6"
+               class="w-full px-4 py-3 rounded-lg bg-white text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-300"/>
 
-          <div class="pt-2">
-            <button type="submit"
-              class="w-full md:w-auto block mx-auto bg-purple-700 hover:bg-purple-600 transition px-8 py-3 rounded-lg font-semibold text-white">
-              CONFIRMAR
-            </button>
+        <input type="password" name="confirmar" id="confirmar" placeholder="Confirmar senha" required minlength="6"
+               class="w-full px-4 py-3 rounded-lg bg-white text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-300"/>
+
+        <div class="pt-4 text-white">
+          <p class="text-lg font-semibold mb-3">Tipo de conta:</p>
+          <div class="flex flex-col sm:flex-row gap-6">
+            <label class="inline-flex items-center gap-2">
+              <input type="radio" name="tipo" value="empresa" class="accent-purple-600" />
+              <span>Empresa</span>
+            </label>
+            <label class="inline-flex items-center gap-2">
+              <input type="radio" name="tipo" value="pessoa_fisica" class="accent-purple-600" checked />
+              <span>Pessoa física</span>
+            </label>
           </div>
-        </form>
-      </div>
+        </div>
+
+        <div class="pt-2">
+          <button type="submit"
+                  class="w-full md:w-auto block mx-auto bg-purple-700 hover:bg-purple-600 transition px-10 py-3 rounded-lg font-semibold text-white">
+            CONFIRMAR
+          </button>
+        </div>
+      </form>
     </div>
-  </section>
+  </main>
+
 
   <footer class="bg-purple-900 text-white py-8">
     <div class="container mx-auto px-4">
@@ -271,11 +201,36 @@
         }
     });
 
-    // Script do formulário de orçamento
-    document.getElementById('orcamento-form').addEventListener('submit', function (e) {
+    // Script do formulário de cadastro
+    document.getElementById('cadastro-form').addEventListener('submit', function (e) {
       e.preventDefault();
-      alert('Orçamento enviado! Entraremos em contato em breve.');
-      this.reset();
+
+      const nome      = document.getElementById('nome').value.trim();
+      const email     = document.getElementById('email').value.trim();
+      const telefone  = document.getElementById('telefone').value.trim(); 
+      const senha     = document.getElementById('senha').value.trim();
+      const confirmar = document.getElementById('confirmar').value.trim();
+      const tipo      = (new FormData(this)).get('tipo'); 
+
+      if (!nome || !email || !senha || !confirmar) {
+        alert('Preencha todos os campos obrigatórios (Nome, E-mail, Senha e Confirmação).');
+        return;
+      }
+      if (senha !== confirmar) {
+        alert('As senhas não coincidem.');
+        return;
+      }
+
+      // Guarda o e-mail para facilitar o login
+      try { localStorage.setItem('lastRegisteredEmail', email); } catch {}
+
+      if (tipo === 'empresa') {
+        // Vai para a tela Empresa (com flag de origem)
+        window.location.href = 'empresa.html?from=cadastro';
+      } else {
+        // Vai direto para Login
+        window.location.href = 'usuario.html?registered=1';
+      }
     });
   </script>
 </body>
